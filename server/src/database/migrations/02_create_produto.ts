@@ -10,7 +10,6 @@ export async function up(knex: Knex) {
         table.date('fim_promo').notNullable();
         table.decimal('num_curtidas').notNullable();
         table.string('unidade_med').notNullable();
-
         table.integer('categoria_id')
             .notNullable()
             .references('id')
@@ -22,5 +21,5 @@ export async function up(knex: Knex) {
     })
 }
 export async function down(knex: Knex) {
-    return knex.schema.dropTable('produto');
+    return knex.schema.dropTable('produtos');
 }
