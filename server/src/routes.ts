@@ -13,11 +13,14 @@ const categoriaController = new CategoriaController();
 //Categorias
 routes.post("/categoria", categoriaController.create);
 routes.get("/categoria", categoriaController.list);
+routes.get("/categoria/:search", categoriaController.show);
 routes.put("/categoria", categoriaController.update);
 routes.delete("/categoria", categoriaController.delete);
+
 //Supermercados
 routes.post("/supermercado", supermercadoController.create);
 routes.get("/supermercado", supermercadoController.list);
+
 //Produtos
 routes.post("/produto", async (request, response) => {
   const {
@@ -49,4 +52,5 @@ routes.get("/produto", async (request, response) => {
 
   return response.json(produto);
 })
+
 export default routes;

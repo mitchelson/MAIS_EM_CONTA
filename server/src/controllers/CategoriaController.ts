@@ -21,13 +21,19 @@ class CategoriaController {
 
         return response.json(serializedCat);
     };
+    async show(request: Request, response: Response) {
+        const { search } = request.params;
+        console.log(search);
+        const busca = await knex('categoria').where('nome', 'like', `%${search}%`);
+        return response.json(busca)
+    };
     async update(request: Request, response: Response) {
         const { id, nome, img } = request.body;
         await knex('categoria')
             .where('id', id)
             .update({
                 nome,
-                img: `http://localhost:3333/uploads/${img}`
+                img
             });
         return response.json({ sucess: true });
     };
