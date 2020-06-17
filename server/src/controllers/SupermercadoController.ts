@@ -28,6 +28,40 @@ class SupermercadoController {
 
         return response.json(supermercado)
     };
+    async show(request: Request, response: Response) {
+        const { search } = request.params;
+        const busca = await knex('supermercado').where('nome', 'like', `%${search}%`);
+        return response.json(busca);
+    };
+    async update(request: Request, response: Response) {
+        const { id,
+            nome,
+            img,
+            nota,
+            latitude,
+            longitude,
+            cidade,
+            uf
+        } = request.body;
+        await knex('supermercado')
+            .where('id', id)
+            .update({
+                nome,
+                img,
+                nota,
+                latitude,
+                longitude,
+                cidade,
+                uf
+            });
+        return response.json({ sucess: true });
+    };
+    async delete(request: Request, response: Response) {
+        const { id } = request.body;
+        await knex('supermercado').where('id', id).del();
+
+        return response.json({ sucess: true })
+    };
 }
 
 export default SupermercadoController;

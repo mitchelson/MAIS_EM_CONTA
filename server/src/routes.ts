@@ -20,6 +20,9 @@ routes.delete("/categoria", categoriaController.delete);
 //Supermercados
 routes.post("/supermercado", supermercadoController.create);
 routes.get("/supermercado", supermercadoController.list);
+routes.get("/supermercado/:search", supermercadoController.show);
+routes.put("/supermercado", supermercadoController.update);
+routes.delete("/supermercado", supermercadoController.delete);
 
 //Produtos
 routes.post("/produto", async (request, response) => {
