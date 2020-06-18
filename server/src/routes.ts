@@ -1,5 +1,4 @@
 import express from "express";
-import knex from "./database/connection";
 import SupermercadoController from "./controllers/SupermercadoController";
 import ProdutoController from "./controllers/ProdutoController";
 import CategoriaController from "./controllers/CategoriaController";
@@ -25,35 +24,10 @@ routes.put("/supermercado", supermercadoController.update);
 routes.delete("/supermercado", supermercadoController.delete);
 
 //Produtos
-routes.post("/produto", async (request, response) => {
-  const {
-    nome,
-    valor,
-    inicio_promo,
-    fim_promo,
-    num_curtidas,
-    unidade_med,
-    categoria_id,
-    supermercado_id
-  } = request.body;
-  await knex('produto').insert({
-    nome,
-    valor,
-    inicio_promo,
-    fim_promo,
-    num_curtidas,
-    unidade_med,
-    categoria_id,
-    supermercado_id,
-    img: "image-fake"
-  });
-
-  return response.json({ sucess: true })
-})
-routes.get("/produto", async (request, response) => {
-  const produto = await knex('produto').select('*');
-
-  return response.json(produto);
-})
+routes.post("/produto", produtoController.create);
+routes.get("/produto", produtoController.list);
+routes.get("/produto/:search", produtoController.show);
+routes.put("/produto", produtoController.update);
+routes.delete("/produto", produtoController.delete);
 
 export default routes;
