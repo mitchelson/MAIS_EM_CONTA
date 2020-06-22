@@ -1,67 +1,68 @@
 import { Request, Response } from 'express';
 import knex from '../database/connection';
 
-class SupermercadoController {
+class MarketController {
     async create(request: Request, response: Response) {
         const {
-            nome,
-            nota,
+            name,
+            score,
             latitude,
             longitude,
-            cidade,
-            uf
+            city,
+            state
         } = request.body;
-        await knex('supermercado').insert({
-            nome,
-            img: 'image-fake',
-            nota,
+        await knex('market').insert({
+            name,
+            img: 'fake-image',
+            score,
             latitude,
             longitude,
-            cidade,
-            uf
+            city,
+            state
         });
 
         return response.json({ sucess: true })
     };
     async list(request: Request, response: Response) {
-        const supermercado = await knex('supermercado').select('*');
+        const result = await knex('market').select('*');
 
-        return response.json(supermercado)
+        return response.json(result)
     };
     async show(request: Request, response: Response) {
         const { search } = request.params;
-        const busca = await knex('supermercado').where('nome', 'like', `%${search}%`);
-        return response.json(busca);
+        const result = await knex('market').where('name', 'like', `%${search}%`);
+        return response.json(result);
     };
     async update(request: Request, response: Response) {
-        const { id,
-            nome,
+        const {
+            id,
+            name,
             img,
-            nota,
+            score,
             latitude,
             longitude,
-            cidade,
-            uf
+            city,
+            state
         } = request.body;
-        await knex('supermercado')
+        await knex('market')
             .where('id', id)
             .update({
-                nome,
+                name,
                 img,
-                nota,
+                score,
                 latitude,
                 longitude,
-                cidade,
-                uf
+                city,
+                state
             });
         return response.json({ sucess: true });
     };
     async delete(request: Request, response: Response) {
         const { id } = request.body;
-        await knex('supermercado').where('id', id).del();
+        await knex('market').where('id', id).del();
 
         return response.json({ sucess: true })
     };
 }
 
-export default SupermercadoController;
+export default MarketController;

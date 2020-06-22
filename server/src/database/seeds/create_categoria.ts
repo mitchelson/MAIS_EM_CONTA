@@ -1,20 +1,20 @@
 import Knex from 'knex';
 
 export async function seed(knex: Knex) {
-    await knex('categoria').insert([
-        { nome: 'Automotivo', img: "automotivo.svg" },
-        { nome: 'Açougue', img: "acougue.svg" },
-        { nome: 'Eletrônicos', img: "eletronic.svg" },
-        { nome: 'Enlatados', img: "enlatados.svg" },
-        { nome: 'Frios', img: "frios.svg" },
-        { nome: 'Grãos', img: "gros.svg" },
-        { nome: 'Higiene', img: "higiene.svg" },
-        { nome: 'Hortifruti', img: "hortifruti.svg" },
-        { nome: 'Laticíneos', img: "laticinios.svg" },
-        { nome: 'Limpeza', img: "limpeza.svg" },
-        { nome: 'Orgânicos', img: "oraganicos.svg" },
-        { nome: 'Padaria', img: "padaria.svg" },
-        { nome: 'PET', img: "pet.svg" },
-        { nome: 'Outros', img: "outros.svg" },
+    await knex('category').insert([
+        { name: 'Automotivo', img: "automotivo.svg" },
+        { name: 'Açougue', img: "acougue.svg" },
+        { name: 'Eletrônicos', img: "eletronic.svg" },
+        { name: 'Enlatados', img: "enlatados.svg" },
+        { name: 'Frios', img: "frios.svg" },
+        { name: 'Grãos', img: "gros.svg" },
+        { name: 'Higiene', img: "higiene.svg" },
+        { name: 'Hortifruti', img: "hortifruti.svg" },
+        { name: 'Laticíneos', img: "laticinios.svg" },
+        { name: 'Limpeza', img: "limpeza.svg" },
+        { name: 'Orgânicos', img: "oraganicos.svg" },
+        { name: 'Padaria', img: "padaria.svg" },
+        { name: 'PET', img: "pet.svg" },
+        { name: 'Outros', img: "outros.svg" },
     ])
 }

@@ -1,41 +1,41 @@
 import { Request, Response } from 'express';
 import knex from '../database/connection';
 
-class CategoriaController {
-    // Criar uma nova Categoria
+class CategoryController {
+    // Create a new Category
     async create(request: Request, response: Response) {
-        const { nome, img } = request.body;
-        await knex('categoria').insert({
-            nome, img
+        const { name, img } = request.body;
+        await knex('category').insert({
+            name, img
         });
         return response.json({ sucess: true })
     };
-    // Listar as Categorias existentes
+    // List all Categories
     async list(request: Request, response: Response) {
-        const categorias = await knex('categoria').select('*');
-        const serializedCat = categorias.map(categoria => {
+        const categories = await knex('category').select('*');
+        const serializedCat = categories.map(category => {
             return {
-                id: categoria.id,
-                nome: categoria.nome,
-                img_url: `http://localhost:3333/uploads/${categoria.img}`,
+                id: category.id,
+                name: category.name,
+                img_url: `http://localhost:3333/uploads/${category.img}`,
             };
         });
 
         return response.json(serializedCat);
     };
-    // Buscar uma Categoria pelo nome
+    // Search category by name
     async show(request: Request, response: Response) {
         const { search } = request.params;
-        const busca = await knex('categoria').where('nome', 'like', `%${search}%`);
-        return response.json(busca)
+        const result = await knex('category').where('name', 'like', `%${search}%`);
+        return response.json(result)
     };
-    // Atualizar uma Categoria
+    // Update a Category
     async update(request: Request, response: Response) {
-        const { id, nome, img } = request.body;
-        await knex('categoria')
+        const { id, name, img } = request.body;
+        await knex('category')
             .where('id', id)
             .update({
-                nome,
+                name,
                 img
             });
         return response.json({ sucess: true });
@@ -43,11 +43,11 @@ class CategoriaController {
     // Deletar uma Categoria
     async delete(request: Request, response: Response) {
         const { id } = request.body;
-        await knex('categoria')
+        await knex('category')
             .where('id', id)
             .del();
         return response.json({ sucess: true });
     };
 }
 
-export default CategoriaController;
+export default CategoryController;
