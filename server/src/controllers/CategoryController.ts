@@ -8,7 +8,7 @@ class CategoryController {
         await knex('category').insert({
             name, img
         });
-        return response.json({ sucess: true })
+        return response.json({ sucess: true });
     };
     // List all Categories
     async list(request: Request, response: Response) {
@@ -27,7 +27,7 @@ class CategoryController {
     async show(request: Request, response: Response) {
         const { search } = request.params;
         const result = await knex('category').where('name', 'like', `%${search}%`);
-        return response.json(result)
+        return response.json(result);
     };
     // Update a Category
     async update(request: Request, response: Response) {

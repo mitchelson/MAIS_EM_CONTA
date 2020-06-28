@@ -1,7 +1,7 @@
 import express from "express";
 import MarketController from "./controllers/MarketController";
 import ProductController from "./controllers/ProductController";
-import CategoryController from "./controllers/CAtegoryController";
+import CategoryController from "./controllers/CategoryController";
 
 const routes = express.Router();
 

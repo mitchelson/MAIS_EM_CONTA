@@ -5,7 +5,7 @@ export async function up(knex: Knex) {
         table.increments('id').primary();
         table.string('name').notNullable();
         table.string('img').notNullable();
-    })
+    });
 }
 export async function down(knex: Knex) {
     return knex.schema.dropTable('category');
