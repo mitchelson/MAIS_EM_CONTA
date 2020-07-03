@@ -13,29 +13,41 @@ class ProductController {
             id_category,
             id_market
         } = request.body;
-        await knex('product').insert({
-            name,
-            img,
-            value,
-            like: 0,
-            start_promo,
-            end_promo,
-            unity,
-            available: true,
-            id_category,
-            id_market
-        });
+        try {
+            await knex('product').insert({
+                name,
+                img,
+                value,
+                like: 0,
+                start_promo,
+                end_promo,
+                unity,
+                available: true,
+                id_category,
+                id_market
+            });
+            return response.json({ sucess: true })
 
-        return response.json({ sucess: true })
+        } catch (error) {
+            return response.json({ message: "I can't register the new product!" })
+        }
     };
     async list(request: Request, response: Response) {
-        const result = await knex('product').select('*');
-        return response.json(result);
+        try {
+            const result = await knex('product').select('*');
+            return response.json(result);
+        } catch (error) {
+            return response.json({ message: "I can't listening products" });
+        }
     };
     async show(request: Request, response: Response) {
         const { search } = request.params;
-        const result = await knex('product').where('name', 'like', `%${search}%`);
-        return response.json(result)
+        try {
+            const result = await knex('product').where('name', 'like', `%${search}%`);
+            return response.json(result)
+        } catch (error) {
+            return response.status(400).json({ message: "Error" })
+        }
     };
     async update(request: Request, response: Response) {
         const {
@@ -48,27 +60,35 @@ class ProductController {
             unity,
             id_category,
             id_market } = request.body;
-        await knex('product')
-            .where('id', id)
-            .update({
-                name,
-                img,
-                value,
-                start_promo,
-                end_promo,
-                unity,
-                available: true,
-                id_category,
-                id_market
-            });
-        return response.json({ sucess: true });
+        try {
+            await knex('product')
+                .where('id', id)
+                .update({
+                    name,
+                    img,
+                    value,
+                    start_promo,
+                    end_promo,
+                    unity,
+                    available: true,
+                    id_category,
+                    id_market
+                });
+            return response.json({ sucess: true });
+        } catch (error) {
+            return response.status(400).json({ message: "I can't update!" });
+        }
     };
     async delete(request: Request, response: Response) {
         const { id } = request.body;
-        await knex('product')
-            .where('id', id)
-            .del();
-        return response.json({ sucess: true });
+        try {
+            await knex('product')
+                .where('id', id)
+                .del();
+            return response.json({ sucess: true });
+        } catch (error) {
+            return response.json({ message: "I can't delete product!" });
+        }
     };
 }
 
