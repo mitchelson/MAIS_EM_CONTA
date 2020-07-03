@@ -4,64 +4,122 @@ import knex from '../database/connection';
 class MarketController {
     async create(request: Request, response: Response) {
         const {
-            name,
+            responsible,
+            company,
             score,
+            img,
+            email,
+            password,
             latitude,
             longitude,
+            street,
+            district,
+            cep,
+            number,
             city,
             state
         } = request.body;
-        await knex('market').insert({
-            name,
-            img: 'fake-image',
-            score,
-            latitude,
-            longitude,
-            city,
-            state
-        });
 
-        return response.json({ sucess: true })
-    };
+        try {
+            await knex('market').insert({
+                responsible,
+                company,
+                score,
+                img,
+                email,
+                password,
+                latitude,
+                longitude,
+                street,
+                district,
+                cep,
+                number,
+                city,
+                state
+            });
+            return response.json({ sucess: true })
+        } catch (error) {
+            return response.json({ message: "Sorry, but i can't register this market" });
+        }
+    }
     async list(request: Request, response: Response) {
-        const result = await knex('market').select('*');
+        try {
+            const result = await knex('market').select('*');
+            if (result > []) {
+                return response.json(result);
+            } else {
+                return response.status(400).json({ message: "I didn't find anything" });
+            }
 
-        return response.json(result)
+        } catch (error) {
+            return response.status(400).json({ message: "I can't list markets bro!" })
+        }
     };
     async show(request: Request, response: Response) {
         const { search } = request.params;
-        const result = await knex('market').where('name', 'like', `%${search}%`);
-        return response.json(result);
+        try {
+            const result = await knex('market').where('company', 'like', `%${search}%`);
+            if (result > []) {
+                return response.json(result);
+            } else {
+                return response.status(400).json({
+                    message: "There's nothing to see here!"
+                });
+            }
+        } catch (error) {
+            return response.json({ message: "I can't search!" });
+        }
     };
     async update(request: Request, response: Response) {
         const {
             id,
-            name,
-            img,
+            responsible,
+            company,
             score,
+            img,
+            email,
+            password,
             latitude,
             longitude,
+            street,
+            district,
+            cep,
+            number,
             city,
             state
         } = request.body;
-        await knex('market')
-            .where('id', id)
-            .update({
-                name,
-                img,
-                score,
-                latitude,
-                longitude,
-                city,
-                state
-            });
-        return response.json({ sucess: true });
+        try {
+            await knex('market')
+                .where('id', id)
+                .update({
+                    responsible,
+                    company,
+                    score,
+                    img,
+                    email,
+                    password,
+                    latitude,
+                    longitude,
+                    street,
+                    district,
+                    cep,
+                    number,
+                    city,
+                    state
+                });
+            return response.json({ sucess: true });
+        } catch (error) {
+            return response.status(400).json({ message: "Don't update bro!" });
+        }
     };
     async delete(request: Request, response: Response) {
         const { id } = request.body;
-        await knex('market').where('id', id).del();
-
-        return response.json({ sucess: true })
+        try {
+            await knex('market').where('id', id).del();
+            return response.json({ sucess: true })
+        } catch (error) {
+            return response.status(400).json({ message: "Don't delete man!" })
+        }
     };
 }
 
