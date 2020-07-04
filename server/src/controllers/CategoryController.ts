@@ -20,7 +20,6 @@ class CategoryController {
                 img_url: `http://localhost:3333/uploads/${category.img}`,
             };
         });
-
         return response.json(serializedCat);
     };
     // Search category by name
