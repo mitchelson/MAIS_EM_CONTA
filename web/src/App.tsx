@@ -7,7 +7,6 @@ function App() {
   return (
     <div>
       <Home />
-      <h1>Conteudo da Aplicação</h1>
     </div>
   );
 }
