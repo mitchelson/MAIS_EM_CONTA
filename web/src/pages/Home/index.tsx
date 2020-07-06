@@ -1,7 +1,10 @@
 import React from 'react';
 import logo from '../../assets/logo.svg';
 import imgSection1 from '../../assets/imgHome.png'
-import { FaUser } from 'react-icons/fa';
+import imgSection2 from '../../assets/sectiontwo.png'
+import appStore from '../../assets/appstore.png'
+import playStore from '../../assets/playstore.png'
+import { FaUser, FaRocket, FaClock, FaLeaf } from 'react-icons/fa';
 import './styles.css';
 
 const Home = () => {
@@ -43,9 +46,52 @@ const Home = () => {
                             <strong>Anuncie Conosco</strong>
                         </a>
                     </section>
+                    <section>
+                        <div className="column-section2">
+                            <img src={imgSection2}></img>
+                            <div>
+                                <h1>Não importa onde você
+                                esteja ou quem você seja</h1>
+                                <p>Levamos seus produtos e promoções a qualquer lugar
+                                e a qualquer pessoa, seja você pequena, média
+                                ou grande empresa. Mais alcance, impossível!
+                                </p>
+                                <br />
+                                <br />
+                                <strong>DISPONÍVEL EM:</strong>
+                                <div className="groupbutton-download">
+                                    <img className="download-img" src={appStore}></img>
+                                    <img className="download-img" src={playStore}></img>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div className="column-section3">
+                            <h1>Benefícios</h1>
+                            <p>Conheça alguns dos benefícios que só você pode ter</p>
+                            <div className="boxs">
+                                <div className="box1">
+                                    <FaRocket style={{ fontSize: "80px", color: '#fff' }} />
+                                    <h1>Alcance</h1>
+                                    <p>Veja seus produtos e promoções chegarem onde você nem imagina.</p>
+                                </div>
+                                <div className="box2">
+                                    <FaClock style={{ fontSize: "80px", color: '#fff' }} />
+                                    <h1>Disponível 24h</h1>
+                                    <p>Seus produtos e promoções estaram visivéis a qualquer hora e em qualquer lugar.</p>
+                                </div>
+                                <div className="box3">
+                                    <FaLeaf style={{ fontSize: "80px", color: '#fff' }} />
+                                    <h1>Ajude o Planeta</h1>
+                                    <p>Não utilizando papel para a divigulção dos seus produtos e promoções você ajuda o planeta.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </main>
             </div>
-        </div>
+        </div >
     )
 }
 export default Home;
