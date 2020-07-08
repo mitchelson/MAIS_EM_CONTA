@@ -5,7 +5,8 @@ import imgSection2 from '../../assets/sectiontwo.png'
 import appStore from '../../assets/appstore.png'
 import playStore from '../../assets/playstore.png'
 import { FaUser, FaRocket, FaClock, FaLeaf } from 'react-icons/fa';
-import './styles.css';
+import Footer from '../Footer';
+import '../Home/styles.css';
 
 const Home = () => {
     return (
@@ -15,7 +16,7 @@ const Home = () => {
                     <div className="menu">
                         <div><a href="/"><img src={logo} alt="Mais em Conta" /></a></div>
                         <div className="left-menu">
-                            <a href="/" className="active item">Home</a>
+                            <a href="/" className="active-item">Home</a>
                             <a href="/" className="item">Sobre</a>
                             <a href="/" className="item">Ajuda</a>
                             <a href="/" className="item">Mercados</a>
@@ -40,7 +41,7 @@ const Home = () => {
                                 de pessoas.
                                 </p>
                             </div>
-                            <img src={imgSection1}></img>
+                            <img alt="Mulher com Celular na Mão" src={imgSection1}></img>
                         </div>
                         <a href="/cadastro">
                             <strong>Anuncie Conosco</strong>
@@ -48,7 +49,7 @@ const Home = () => {
                     </section>
                     <section>
                         <div className="column-section2">
-                            <img src={imgSection2}></img>
+                            <img alt="Diversidade de Pessoas" src={imgSection2}></img>
                             <div>
                                 <h1>Não importa onde você
                                 esteja ou quem você seja</h1>
@@ -60,8 +61,8 @@ const Home = () => {
                                 <br />
                                 <strong>DISPONÍVEL EM:</strong>
                                 <div className="groupbutton-download">
-                                    <img className="download-img" src={appStore}></img>
-                                    <img className="download-img" src={playStore}></img>
+                                    <img alt="AppStore" className="download-img" src={appStore}></img>
+                                    <img alt="PlayStore" className="download-img" src={playStore}></img>
                                 </div>
                             </div>
                         </div>
@@ -71,24 +72,25 @@ const Home = () => {
                             <h1>Benefícios</h1>
                             <p>Conheça alguns dos benefícios que só você pode ter</p>
                             <div className="boxs">
-                                <div className="box1">
+                                <div className="box">
                                     <FaRocket style={{ fontSize: "80px", color: '#fff' }} />
                                     <h1>Alcance</h1>
                                     <p>Veja seus produtos e promoções chegarem onde você nem imagina.</p>
                                 </div>
-                                <div className="box2">
+                                <div className="box">
                                     <FaClock style={{ fontSize: "80px", color: '#fff' }} />
                                     <h1>Disponível 24h</h1>
-                                    <p>Seus produtos e promoções estaram visivéis a qualquer hora e em qualquer lugar.</p>
+                                    <p>Seus produtos e promoções estarão visivéis a qualquer hora e em qualquer lugar.</p>
                                 </div>
-                                <div className="box3">
+                                <div className="box">
                                     <FaLeaf style={{ fontSize: "80px", color: '#fff' }} />
                                     <h1>Ajude o Planeta</h1>
-                                    <p>Não utilizando papel para a divigulção dos seus produtos e promoções você ajuda o planeta.</p>
+                                    <p>Não utilizando papel para a divulgação dos seus produtos e promoções você ajuda o planeta.</p>
                                 </div>
                             </div>
                         </div>
                     </section>
+                    <Footer />
                 </main>
             </div>
         </div >

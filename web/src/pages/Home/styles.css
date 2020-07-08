@@ -105,20 +105,7 @@
   #page-home .content main section .column-section3 .boxs{
     display: flex;
   }
-  #page-home .content main section .column-section3 .boxs .box1{
-    width: 320px;
-    height: 292px;
-    background-color: rgba(240, 99, 184, 0.25);
-    padding: 20px;
-    margin: 20px 20px 0px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 20px;
-  }
-  #page-home .content main section .column-section3 .boxs .box2{
+  #page-home .content main section .column-section3 .boxs .box{
     width: 320px;
     height: 292px;
     background-color: rgba(156, 105, 226, 0.3);
@@ -131,26 +118,7 @@
     text-align: center;
     border-radius: 20px;
   }
-  #page-home .content main section .column-section3 .boxs .box3{
-    width: 320px;
-    height: 292px;
-    background-color: rgba(33, 35, 83, 0.25);
-    padding: 20px;
-    margin: 20px 20px 0px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 20px;
-  }
-  #page-home .content main section .column-section3 .boxs .box1 h1{
-    font-size: 35px !important;
-  }
-  #page-home .content main section .column-section3 .boxs .box2 h1{
-    font-size: 35px !important;
-  }
-  #page-home .content main section .column-section3 .boxs .box3 h1{
+  #page-home .content main section .column-section3 .boxs h1{
     font-size: 35px !important;
   }
 
@@ -159,19 +127,23 @@
     margin-top: 24px;
     line-height: 28px;
   }
+  
   #page-home .content header .left-menu a{
-    margin: 0 20px 0 20px;
+    padding: 10px 20px;
+    border-radius: 30px;
     text-decoration: none;
     transition: 0.5s;
+  }
+  #page-home .content header .left-menu .active-item{
+    background-color: rgba(240, 99, 184, 0.25);
   }
   #page-home .content header .left-menu a:hover{
     background: #dcdcdc;
   }
-  
   #page-home .content header .right-menu a {
-    width: 230px;
-    max-width: 230px;
-    height: 72px;
+    width: 255px;
+    max-width: 255px;
+    height: 60px;
     background: var(--primary-color);
     border-radius: 50px;
     text-decoration: none;
