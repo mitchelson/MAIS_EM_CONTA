@@ -1,11 +1,10 @@
 import React from 'react';
-import logo from '../../assets/logo.svg';
 import imgSection1 from '../../assets/imgHome.png'
 import imgSection2 from '../../assets/sectiontwo.png'
-import appStore from '../../assets/appstore.png'
-import playStore from '../../assets/playstore.png'
 import { FaUser, FaRocket, FaClock, FaLeaf } from 'react-icons/fa';
-import Footer from '../Footer';
+import Header from '../../components/Header';
+import ButtonStore from '../../components/ButtonStore';
+import Footer from '../../components/Footer';
 import '../Home/styles.css';
 
 const Home = () => {
@@ -13,25 +12,10 @@ const Home = () => {
         <div id="page-home">
             <div className="content">
                 <header>
-                    <div className="menu">
-                        <div><a href="/"><img src={logo} alt="Mais em Conta" /></a></div>
-                        <div className="left-menu">
-                            <a href="/" className="active-item">Home</a>
-                            <a href="/" className="item">Sobre</a>
-                            <a href="/" className="item">Ajuda</a>
-                            <a href="/" className="item">Mercados</a>
-                            <a href="/" className="item">Anuncie Aqui</a>
-                        </div>
-                        <div className="right-menu">
-                            <a href="/login">
-                                <span><FaUser style={{ fontSize: "40px" }} /></span>
-                                <strong>Faça seu Login ou<br />Cadastre-se</strong>
-                            </a>
-                        </div>
-                    </div>
+                    <Header />
                 </header>
                 <main>
-                    <section>
+                    <section className="section1">
                         <div className="column-section">
                             <div>
                                 <h1>Suas promoções já foram vistas hoje?</h1>
@@ -43,7 +27,7 @@ const Home = () => {
                             </div>
                             <img alt="Mulher com Celular na Mão" src={imgSection1}></img>
                         </div>
-                        <a href="/cadastro">
+                        <a href="/cadastro" className="anuncie">
                             <strong>Anuncie Conosco</strong>
                         </a>
                     </section>
@@ -59,11 +43,7 @@ const Home = () => {
                                 </p>
                                 <br />
                                 <br />
-                                <strong>DISPONÍVEL EM:</strong>
-                                <div className="groupbutton-download">
-                                    <img alt="AppStore" className="download-img" src={appStore}></img>
-                                    <img alt="PlayStore" className="download-img" src={playStore}></img>
-                                </div>
+                                <ButtonStore />
                             </div>
                         </div>
                     </section>
