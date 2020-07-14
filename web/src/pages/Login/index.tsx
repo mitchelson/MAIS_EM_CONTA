@@ -20,6 +20,7 @@ const Login = () => {
                                 <FaGoogle />
                             </div>
                         </div>
+                        Preencha o formulário abaixo
                         <div className="inputLogin">
                             <FaEnvelope />
                             <input type="text" placeholder="Email..." />
