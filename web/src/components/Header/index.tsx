@@ -8,10 +8,10 @@ const Header = () => {
             <div><a href="/"><img src={logo} alt="Mais em Conta" /></a></div>
             <div className="left-menu">
                 <a href="/" className="active-item">Home</a>
-                <a href="/sobre" className="item">Sobre</a>
-                <a href="/ajuda" className="item">Ajuda</a>
-                <a href="/mercado" className="item">Mercados</a>
-                <a href="/anuncie" className="item">Anuncie Aqui</a>
+                <a href="/about" className="item">Sobre</a>
+                <a href="/help" className="item">Ajuda</a>
+                <a href="/market" className="item">Mercados</a>
+                <a href="/" className="item">Anuncie Aqui</a>
             </div>
             <div className="right-menu">
                 <a href="/login">
